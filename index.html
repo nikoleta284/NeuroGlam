@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>StyleBox - Персональный стиль по подписке</title>
+    <title>NeuroGlam - Персональный стиль по подписке</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -14,7 +14,11 @@
             --light: #FFFFFF; /* Светлый цвет */
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary)); /* Градиент */
         }
-
+        .logo {
+    height: 100%; /* Заполняет всю высоту родительского контейнера */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    max-height: 100px; /* Установите максимальную высоту логотипа */
+}
         * {
             margin: 0;
             padding: 0;
@@ -26,6 +30,7 @@
             background: var(--light);
             color: var(--dark);
             line-height: 1.7;
+            margin: 0;
         }
 
         /* Navigation Bar */
@@ -37,6 +42,7 @@
             color: white;
             padding: 10px 20px;
             position: relative;
+            min-height: 80px;ы
         }
 
         .navbar .logo {
@@ -71,7 +77,9 @@
 
         /* Hero Section */
         .hero {
-            background: var(--gradient);
+            background-image: url('C:/Users/vadim/Desktop/gkjkj/snapedit.jpg'); /* Укажите путь к вашему изображению */
+            background-size: cover; /* Изображение будет растягиваться, чтобы покрыть весь фон */
+            background-position: center;
             padding: 8rem 2rem 12rem;
             text-align: center;
             color: white;
@@ -103,7 +111,7 @@
         .section {
             padding: 8rem 2rem;
             display: none;
-            background: var(--light); /* Убедитесь, что фон светлый */
+            background-color: #9d81ba; /* Убедитесь, что фон светлый */
         }
 
         .section.active {
@@ -419,6 +427,7 @@
 
             .hero {
                 padding: 4rem 1rem 8rem;
+            
                 
             }
 
@@ -492,13 +501,15 @@
         body {
             position: relative;
             overflow-x: hidden;
-            
+            background: #9d81ba;
+            margin: 0;
         }
+        
     </style>
 </head>
 <body>
     <div class="navbar">
-        <img src="neuroglam-logo.png" alt="NeuroGlam Logo" class="logo" style="height: 40px;">
+        <img src="C:/Users/vadim/Desktop/gkjkj/logo.png" alt="NeuroGlam Logo" class="logo" style="height: 40px;">
         <button class="menu-toggle"><i class="fas fa-bars"></i></button>
         <div class="nav-links">
             <a href="#hero" class="nav-link">Главная</a>
@@ -704,7 +715,6 @@
             });
         });
 
-        // Обработчик для кнопки "гамбургера"
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
