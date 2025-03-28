@@ -614,6 +614,143 @@
     color: #ff0000; /* Установите цвет на черный */
     font-weight: bold; /* Жирный шрифт для выделения */
 }
+.wizard-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.wizard-header {
+    padding: 2rem;
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+}
+
+.style-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.style-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: white;
+}
+
+.style-option:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.style-option img {
+    max-width: 100px;
+    margin-bottom: 1rem;
+}
+
+.color-preference, .skin-color-preference, .size-preference {
+    margin: 2rem 0;
+}
+
+.color-option {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+.color-option div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.color-option div:hover {
+    transform: scale(1.1);
+}
+
+.size-preference input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0; /* Исправлено: добавлен пробел между значениями */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    border: none; 
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: var(--secondary);
+}
+.color-option div, #skin-color-options div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.color-option div:hover, #skin-color-options div:hover {
+    transform: scale(1.1);
+}
+
+.color-option div.selected, #skin-color-options div.selected {
+    transform: scale(1.2); /* Увеличиваем размер выбранного цвета */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Добавляем тень для выделения */
+    border: 2px solid var(--accent); /* Добавляем обводку для выделения */
+}
+
+
+.size-preference h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.size-input {
+    margin-bottom: 1.5rem;
+}
+
+.size-input label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.size-input input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.size-input input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
         
     </style>
 </head>
@@ -754,21 +891,23 @@
         <div class="wizard-content">
             <div class="style-options">
                 <div class="style-option" data-style="casual">
-                    <img src="casual.png" alt="Casual Style">
+                    <img src="images/casual.png" alt="Casual Style">
                     <h3>Casual</h3>
                     <p>Удобный и повседневный стиль.</p>
                 </div>
                 <div class="style-option" data-style="business">
-                    <img src="business.png" alt="Business Style">
+                    <img src="images/business.png" alt="Business Style">
                     <h3>Деловой</h3>
                     <p>Строгий и профессиональный стиль.</p>
                 </div>
                 <div class="style-option" data-style="sporty">
-                    <img src="sporty.png" alt="Sporty Style">
+                    <img src="images/sporty.png" alt="Sporty Style">
                     <h3>Спортивный</h3>
                     <p>Активный и динамичный стиль.</p>
                 </div>
             </div>
+    
+            <!-- Предпочтения в цвете -->
             <div class="color-preference">
                 <h3>Предпочтения в цвете</h3>
                 <div class="color-option" id="color-options">
@@ -780,6 +919,39 @@
                     <div style="background-color: #4B0082;" data-color="dark-purple"></div>
                 </div>
             </div>
+    
+            <!-- Выбор цвета кожи -->
+            <div class="skin-color-preference">
+                <h3>Выбор цвета кожи</h3>
+                <div class="color-option" id="skin-color-options">
+                    <div style="background-color: #fddbb0;" data-color="light"></div>
+                    <div style="background-color: #f2c6a6;" data-color="medium-light"></div>
+                    <div style="background-color: #e0a68d;" data-color="medium"></div>
+                    <div style="background-color: #d18f7a;" data-color="medium-dark"></div>
+                    <div style="background-color: #c77b6e;" data-color="dark"></div>
+                    <div style="background-color: #b76b5e;" data-color="dark-brown"></div>
+                    <div style="background-color: #8b5a4e;" data-color="brown"></div>
+                    <div style="background-color: #5c3d3d;" data-color="very-dark"></div>
+                </div>
+            </div>
+    
+ <!-- Ввод размеров -->
+<div class="size-preference">
+    <h3>Введите ваши размеры</h3>
+    <div class="size-input">
+        <label for="pants-size">Размер штанов:</label>
+        <input type="text" id="pants-size" placeholder="Например, 32" />
+    </div>
+    <div class="size-input">
+        <label for="shirt-size">Размер рубашки:</label>
+        <input type="text" id="shirt-size" placeholder="Например, M" />
+    </div>
+    <div class="size-input">
+        <label for="shoe-size">Размер обуви:</label>
+        <input type="text" id="shoe-size" placeholder="Например, 42" />
+    </div>
+</div>
+    
             <button class="btn" id="submit-button">Подтвердить выбор</button>
         </div>
     </div>
@@ -812,17 +984,6 @@
                 console.log('Выбран стиль:', selectedStyle);
                 document.getElementById('progress-bar').style.width = '50%'; 
                 document.querySelector('.color-option').style.display = 'flex'; 
-            });
-        });
-
-        const colorOptions = document.querySelectorAll('.color-option div');
-        colorOptions.forEach(color => {
-            color.addEventListener('click', function() {
-                colorOptions.forEach(opt => opt.classList.remove('selected'));
-                this.classList.add('selected');
-                const selectedColor = this.getAttribute('data-color');
-                console.log('Выбран цвет:', selectedColor);
-                document.getElementById('progress-bar').style.width = '100%'; 
             });
         });
 
@@ -881,11 +1042,38 @@
                 }
             });
         });
+       
+const colorOptions = document.querySelectorAll('.color-option div');
+colorOptions.forEach(color => {
+    color.addEventListener('click', function() {
+        // Добавляем класс 'selected' к выбранному цвету
+        this.classList.toggle('selected'); // Используем toggle, чтобы можно было выбрать и снять выбор
+        const selectedColor = this.getAttribute('data-color');
+        console.log('Выбран цвет:', selectedColor);
+        // Обновляем прогресс, если выбран хотя бы один цвет
+        const selectedColors = document.querySelectorAll('.color-option div.selected');
+        document.getElementById('progress-bar').style.width = selectedColors.length > 0 ? '50%' : '0%';
+    });
+});
 
+
+const skinColorOptions = document.querySelectorAll('#skin-color-options div');
+skinColorOptions.forEach(color => {
+    color.addEventListener('click', function() {
+        // Удаляем класс 'selected' у всех цветов кожи
+        skinColorOptions.forEach(opt => opt.classList.remove('selected'));
+        // Добавляем класс 'selected' к выбранному цвету кожи
+        this.classList.add('selected');
+        const selectedSkinColor = this.getAttribute('data-color');
+        console.log('Выбран цвет кожи:', selectedSkinColor);
+        document.getElementById('progress-bar').style.width = '100%'; // Обновляем прогресс
+    });
+});
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         });
+    
     </script>
 </body>
 </html>
