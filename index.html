@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NeuroGlam - Персональный стиль по подписке</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --primary: #6C63FF; /* Основной синий цвет */
@@ -15,9 +16,9 @@
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary)); /* Градиент */
         }
         .logo {
-    height: 100%; /* Заполняет всю высоту родительского контейнера */
-    width: auto; /* Автоматическая ширина для сохранения пропорций */
-    max-height: 100px; /* Установите максимальную высоту логотипа */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    width: 150px; /* Установите желаемую ширину */
+    max-height: 80px; /* Установите максимальную высоту */
 }
         * {
             margin: 0;
@@ -42,7 +43,7 @@
             color: white;
             padding: 10px 20px;
             position: relative;
-            min-height: 80px;ы
+            min-height: 80px;
         }
 
         .navbar .logo {
@@ -504,12 +505,121 @@
             background: #9d81ba;
             margin: 0;
         }
+        .section {
+    padding: 5rem 0;
+    background:  #9d81ba;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.process-flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.process-step {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.cta-box {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    border-radius: 20px;
+    color: white;
+}
+
+.cta-button {
+    background: white;
+    color: #ff6b6b;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.section-title {
+    color: #ff6b6b; /* Установите цвет заголовка на #ff6b6b */
+    animation: slideInLeft 1.5s ease forwards; /* Применяем анимацию */
+    opacity: 0; /* Начальная прозрачность */
+}
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through; /* Зачеркивание текста */
+    color: #999; /* Цвет для старой цены */
+    margin-right: 10px; /* Отступ между ценами */
+}
+
+.new-price {
+    font-size: 1.5rem; /* Увеличьте размер шрифта для новой цены */
+    color: #ff0000; /* Установите цвет на черный */
+    font-weight: bold; /* Жирный шрифт для выделения */
+}
         
     </style>
 </head>
 <body>
     <div class="navbar">
-        <img src="images/logo.png" alt="NeuroGlam Logo" class="logo" style="height: 40px;">
+        <img src="images/logo.png" alt="NeuroGlam Logo" class="logo">
         <button class="menu-toggle"><i class="fas fa-bars"></i></button>
         <div class="nav-links">
             <a href="#hero" class="nav-link">Главная</a>
@@ -527,17 +637,74 @@
     </div>
 
     <section class="section" id="about">
-        <div class="process-grid">
-            <div class="process-card">
-                <h2>О нашем продукте</h2>
-                <p>NeuroGlam - это инновационный сервис персонального стиля, который сочетает в себе искусственный интеллект и работу профессиональных стилистов.</p>
-                <h3>Преимущества:</h3>
-                <ul>
-                    <li>Персональные рекомендации ежедневно</li>
-                    <li>Адаптация под ваш образ жизни</li>
-                    <li>Эксклюзивные коллекции</li>
-                    <li>Гарантия качества материалов</li>
-                </ul>
+        <div class="container">
+            <h2 class="section-title">NeuroGlam - Ваш персональный стилист нового поколения</h2>
+            
+            <div class="process-flow">
+                <!-- Шаг 1 - Анкетирование -->
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>1. Персонализация профиля</h3>
+                    <p>Расскажите нам о своих предпочтениях: стиль, размеры, цветовая палитра и особенности фигуры</p>
+                </div>
+    
+                <!-- Шаг 2 - Генерация -->
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>2. AI-Генерация образов</h3>
+                    <p>Наша нейросеть анализирует ваш профиль и создает уникальные луки с учетом последних трендов</p>
+                </div>
+    
+                <!-- Шаг 3 - Проверка -->
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <h3>3. Экспертная проверка</h3>
+                    <p>Профессиональные стилисты проверяют и дорабатывают каждый образ</p>
+                </div>
+    
+                <!-- Шаг 4 - Доставка -->
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>4. Получение и примерка</h3>
+                    <p>Получайте капсулу с образами, примеряйте в удобной обстановке и оставляйте только то, что подошло</p>
+                </div>
+            </div>
+    
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h4>Гибкая настройка</h4>
+                    <p>Меняйте параметры подписки в любой момент</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-redo"></i>
+                    <h4>Бесплатные правки</h4>
+                    <p>Не понравился образ? Переделаем бесплатно!</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Экономия времени</h4>
+                    <p>Больше не нужно тратить часы на шопинг</p>
+     </div>
+            </div>
+    
+            <div class="cta-box">
+                <p class="highlight-text">Первый месяц подписки со скидкой 30%!</p>
+                <div class="price-container">
+                    <span class="old-price"> ~14,200₽~ </span>
+                    <span class="new-price">9,990₽</span>
+                </div>
+                <button class="cta-button" onclick="showSection('subscription')">Попробовать сейчас</button>
             </div>
         </div>
     </section>
