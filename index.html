@@ -751,7 +751,63 @@
     outline: none;
     box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
 }
-        
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.gender-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+.gender-option {
+    position: relative;
+}
+
+.gender-option input {
+    display: none; /* Скрываем стандартные радиокнопки */
+}
+
+.gender-button {
+    background-color: #6C63FF; /* Основной цвет */
+    color: white;
+    padding: 1rem 2rem; /* Уменьшенные отступы для начального размера */
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem; /* Уменьшенный шрифт для начального размера */
+    transition: background 0.3s, transform 0.3s ease; /* Плавный переход */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Добавление тени */
+    transform: scale(0.9); /* Начальный размер кнопки меньше */
+}
+
+.gender-option input:checked + .gender-button {
+    background-color: #8A2BE2; /* Цвет для выбранной кнопки */
+    transform: scale(1.1); /* Увеличение при выборе */
+    transition: transform 0.3s ease; /* Плавный переход для увеличения */
+}
+
+.gender-button:hover {
+    background-color: #8A2BE2; /* Цвет при наведении */
+    transform: scale(1.05); /* Увеличение при наведении */
+}
     </style>
 </head>
 <body>
@@ -935,7 +991,21 @@
                 </div>
             </div>
     
- <!-- Ввод размеров -->
+<div class="gender-preference">
+    <h3>Выберите пол</h3>
+    <div class="gender-options">
+        <label class="gender-option">
+            <input type="radio" name="gender" value="male" checked>
+            <span class="gender-button">Мужской</span>
+        </label>
+        <label class="gender-option">
+            <input type="radio" name="gender" value="female">
+            <span class="gender-button">Женский</span>
+        </label>
+    </div>
+</div>
+
+<!-- Ввод размеров -->
 <div class="size-preference">
     <h3>Введите ваши размеры</h3>
     <div class="size-input">
@@ -950,11 +1020,22 @@
         <label for="shoe-size">Размер обуви:</label>
         <input type="text" id="shoe-size" placeholder="Например, 42" />
     </div>
+    <button id="size-chart-button" class="btn">Показать таблицу размеров</button>
+</div>
+
+<!-- Модальное окно для таблицы размеров -->
+<div class="modal" id="size-chart-modal">
+    <div class="modal-content">
+        <span class="close" id="close-size-chart">&times;</span>
+        <h2>Таблица размеров</h2>
+        <img src="images/size-chart.jpg" alt="Таблица размеров" style="width: 100%; height: auto;">
+    </div>
 </div>
     
             <button class="btn" id="submit-button">Подтвердить выбор</button>
         </div>
     </div>
+
 
     <div class="modal" id="success-modal">
         <div class="modal-content">
@@ -1046,34 +1127,60 @@
 const colorOptions = document.querySelectorAll('.color-option div');
 colorOptions.forEach(color => {
     color.addEventListener('click', function() {
-        // Добавляем класс 'selected' к выбранному цвету
-        this.classList.toggle('selected'); // Используем toggle, чтобы можно было выбрать и снять выбор
+        
+        this.classList.toggle('selected'); 
         const selectedColor = this.getAttribute('data-color');
         console.log('Выбран цвет:', selectedColor);
-        // Обновляем прогресс, если выбран хотя бы один цвет
+        
         const selectedColors = document.querySelectorAll('.color-option div.selected');
         document.getElementById('progress-bar').style.width = selectedColors.length > 0 ? '50%' : '0%';
     });
 });
+// Обработчик для кнопки таблицы размеров
+document.getElementById('size-chart-button').addEventListener('click', function() {
+    document.getElementById('size-chart-modal').style.display = 'flex';
+});
 
+// Закрытие модального окна таблицы размеров
+document.getElementById('close-size-chart').addEventListener('click', function() {
+    document.getElementById('size-chart-modal').style.display = 'none';
+});
+
+// Закрытие модального окна при клике вне его
+window.onclick = function(event) {
+    if (event.target == document.getElementById('size-chart-modal')) {
+        document.getElementById('size-chart-modal').style.display = 'none';
+    }
+};
 
 const skinColorOptions = document.querySelectorAll('#skin-color-options div');
 skinColorOptions.forEach(color => {
     color.addEventListener('click', function() {
-        // Удаляем класс 'selected' у всех цветов кожи
+       
         skinColorOptions.forEach(opt => opt.classList.remove('selected'));
-        // Добавляем класс 'selected' к выбранному цвету кожи
+        
         this.classList.add('selected');
         const selectedSkinColor = this.getAttribute('data-color');
         console.log('Выбран цвет кожи:', selectedSkinColor);
-        document.getElementById('progress-bar').style.width = '100%'; // Обновляем прогресс
+        document.getElementById('progress-bar').style.width = '100%'; 
     });
 });
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         });
-    
+        const genderOptions = document.querySelectorAll('.gender-option input');
+
+genderOptions.forEach(option => {
+    option.addEventListener('change', function() {
+        genderOptions.forEach(opt => {
+            const button = opt.nextElementSibling;
+            button.style.transform = 'scale(0.9)'; // Сброс размера
+        });
+        const selectedButton = this.nextElementSibling;
+        selectedButton.style.transform = 'scale(1.1)'; // Увеличение выбранной кнопки
+    });
+});   
     </script>
 </body>
 </html>
