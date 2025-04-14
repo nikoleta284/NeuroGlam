@@ -5,21 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NeuroGlam - Персональный стиль по подписке</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        :root {
-            --primary: #6C63FF; /* Основной синий цвет */
-            --secondary: #8A2BE2; /* Фиолетовый цвет */
-            --accent: #00C9B1; /* Акцентный цвет */
-            --dark: #2A2D34; /* Темный цвет */
-            --light: #FFFFFF; /* Светлый цвет */
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary)); /* Градиент */
+        .arrow-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: white;
+            animation: bounce 2s infinite;
+            margin-top: 10px;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
         }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* Мобильная версия футера */
+        @media (max-width: 768px) {
+            .footer {
+                position: static !important;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                gap: 15px;
+            }
+            
+            .arrow-hint {
+                font-size: 14px;
+            }
+            
+            .arrow-hint i {
+                font-size: 20px;
+            }
+        }
+
+        :root {
+            --primary: #6C63FF;
+            --secondary: #8A2BE2;
+            --accent: #00C9B1;
+            --dark: #2A2D34;
+            --light: #FFFFFF;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
         .logo {
-    height: auto; /* Автоматическая высота для сохранения пропорций */
-    width: 150px; /* Установите желаемую ширину */
-    max-height: 80px; /* Установите максимальную высоту */
-}
+            height: auto;
+            width: 150px;
+            max-height: 80px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -78,8 +124,8 @@
 
         /* Hero Section */
         .hero {
-            background-image: url('images/snapedit.jpg'); /* Укажите путь к вашему изображению */
-            background-size: cover; /* Изображение будет растягиваться, чтобы покрыть весь фон */
+            background-image: url('images/snapedit.jpg');
+            background-size: cover;
             background-position: center;
             padding: 8rem 2rem 12rem;
             text-align: center;
@@ -112,7 +158,7 @@
         .section {
             padding: 8rem 2rem;
             display: none;
-            background-color: #9d81ba; /* Убедитесь, что фон светлый */
+            background-color: #9d81ba;
         }
 
         .section.active {
@@ -153,7 +199,6 @@
             margin: 2rem 0;
         }
 
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -191,7 +236,7 @@
 
         .process-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40 경제 rgba(0,0,0,0.1);
         }
 
         .process-number {
@@ -212,7 +257,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             overflow: hidden;
-            display: none; /* Скрыто по умолчанию */
+            display: none;
         }
 
         .wizard-header {
@@ -280,7 +325,7 @@
             display: flex;
             justify-content: space-around;
             margin: 2rem 0;
-            display: none; /* Скрыто по умолчанию */
+            display: none;
         }
 
         .color-option div {
@@ -311,7 +356,7 @@
             background: var(--primary);
             color: white;
             padding: 1rem 2rem;
-            border: none; 
+            border: none;
             border-radius: 25px;
             cursor: pointer;
             font-size: 1.2rem;
@@ -324,7 +369,7 @@
 
         /* Modal Styles */
         .modal {
-            display: none; /* Скрыто по умолчанию */
+            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -335,7 +380,7 @@
             background-color: rgba(0, 0, 0, 0.7);
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.5s; /* Анимация появления */
+            animation: fadeIn 0.5s;
         }
 
         .modal-content {
@@ -345,7 +390,7 @@
             text-align: center;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             transform: translateY(-50px);
-            animation: slideIn 0.5s forwards; /* Анимация сдвига */
+            animation: slideIn 0.5s forwards;
         }
 
         @keyframes fadeIn {
@@ -374,7 +419,7 @@
 
         /* Footer Styles */
         .footer {
-            display: none; /* Скрыто по умолчанию */
+            display: none;
             justify-content: space-between;
             align-items: center;
             background: var(--primary);
@@ -428,8 +473,6 @@
 
             .hero {
                 padding: 4rem 1rem 8rem;
-            
-                
             }
 
             .hero h1 {
@@ -480,7 +523,7 @@
                 width: 100%;
                 padding: 1rem;
                 font-size: 1.1rem;
- }
+            }
 
             .modal-content {
                 width: 90%;
@@ -505,309 +548,315 @@
             background: #9d81ba;
             margin: 0;
         }
+
         .section {
-    padding: 5rem 0;
-    background:  #9d81ba;
-}
+            padding: 5rem 0;
+            background: #9d81ba;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.process-flow {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
 
-.process-step {
-    text-align: center;
-    padding: 2rem;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-}
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
 
-.step-icon {
-    font-size: 2.5rem;
-    color: #ff6b6b;
-    margin-bottom: 1rem;
-}
+        .step-icon {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
-}
+        .featuresa {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
 
-.feature-card {
-    text-align: center;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-}
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
 
-.feature-card:hover {
-    transform: translateY(-5px);
-}
+        .cta-box {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            border-radius: 20px;
+            color: white;
+        }
 
-.cta-box {
-    text-align: center;
-    margin-top: 4rem;
-    padding: 3rem;
-    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-    border-radius: 20px;
-    color: white;
-}
+        .cta-button {
+            background: white;
+            color: #ff6b6b;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.cta-button {
-    background: white;
-    color: #ff6b6b;
-    border: none;
-    padding: 1rem 3rem;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
-.cta-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-@keyframes slideInLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
 
-.section-title {
-    color: #ff6b6b; /* Установите цвет заголовка на #ff6b6b */
-    animation: slideInLeft 1.5s ease forwards; /* Применяем анимацию */
-    opacity: 0; /* Начальная прозрачность */
-}
-.price-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem 0;
-}
+        .section-title {
+            color: #ff6b6b;
+            animation: slideInLeft 1.5s ease forwards;
+            opacity: 0;
+        }
 
-.old-price {
-    text-decoration: line-through; /* Зачеркивание текста */
-    color: #999; /* Цвет для старой цены */
-    margin-right: 10px; /* Отступ между ценами */
-}
+        .price-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+        }
 
-.new-price {
-    font-size: 1.5rem; /* Увеличьте размер шрифта для новой цены */
-    color: #ff0000; /* Установите цвет на черный */
-    font-weight: bold; /* Жирный шрифт для выделения */
-}
-.wizard-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    overflow: hidden;
-}
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 10px;
+        }
 
-.wizard-header {
-    padding: 2rem;
-    background: var(--gradient);
-    color: white;
-    text-align: center;
-}
+        .new-price {
+            font-size: 1.5rem;
+            color: #ff0000;
+            font-weight: bold;
+        }
 
-.style-options {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0;
-}
+        .wizard-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
 
-.style-option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    border: 2px solid #eee;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.3s;
-    background: white;
-}
+        .wizard-header {
+            padding: 2rem;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
 
-.style-option:hover {
-    border-color: var(--primary);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
+        .style-options {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+        }
 
-.style-option img {
-    max-width: 100px;
-    margin-bottom: 1rem;
-}
+        .style-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+        }
 
-.color-preference, .skin-color-preference, .size-preference {
-    margin: 2rem 0;
-}
+        .style-option:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
 
-.color-option {
-    display: flex;
-    justify-content: space-around;
-    margin: 1rem 0;
-}
+        .style-option img {
+            max-width: 100px;
+            margin-bottom: 1rem;
+        }
 
-.color-option div {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
+        .color-preference, .skin-color-preference, .size-preference {
+            margin: 2rem 0;
+        }
 
-.color-option div:hover {
-    transform: scale(1.1);
-}
+        .color-option {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+        }
 
-.size-preference input {
-    width: 100%;
-    padding: 0.5rem;
-    margin: 0.5rem 0; /* Исправлено: добавлен пробел между значениями */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        .color-option div {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
 
-.btn {
-    background: var(--primary);
-    color: white;
-    padding: 1rem 2rem;
-    border: none; 
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: background 0.3s;
-}
+        .color-option div:hover {
+            transform: scale(1.1);
+        }
 
-.btn:hover {
-    background: var(--secondary);
-}
-.color-option div, #skin-color-options div {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+        .size-preference input {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-.color-option div:hover, #skin-color-options div:hover {
-    transform: scale(1.1);
-}
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
 
-.color-option div.selected, #skin-color-options div.selected {
-    transform: scale(1.2); /* Увеличиваем размер выбранного цвета */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Добавляем тень для выделения */
-    border: 2px solid var(--accent); /* Добавляем обводку для выделения */
-}
+        .btn:hover {
+            background: var(--secondary);
+        }
 
+        .color-option div, #skin-color-options div {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-.size-preference h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
-}
+        .color-option div:hover, #skin-color-options div:hover {
+            transform: scale(1.1);
+        }
 
-.size-input {
-    margin-bottom: 1.5rem;
-}
+        .color-option div.selected, #skin-color-options div.selected {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--accent);
+        }
 
-.size-input label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: var(--dark);
-}
+        .size-preference h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
 
-.size-input input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s;
-}
+        .size-input {
+            margin-bottom: 1.5rem;
+        }
 
-.size-input input:focus {
-    border-color: var(--primary);
-    outline: none;
-    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
-}
-.modal {
-    display: none; /* Скрыто по умолчанию */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-}
+        .size-input label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
 
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-.gender-options {
-    display: flex;
-    justify-content: space-around;
-    margin: 1rem 0;
-}
+        .size-input input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
 
-.gender-option {
-    position: relative;
-}
+        .size-input input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+        }
 
-.gender-option input {
-    display: none; /* Скрываем стандартные радиокнопки */
-}
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
 
-.gender-button {
-    background-color: #6C63FF; /* Основной цвет */
-    color: white;
-    padding: 1rem 2rem; /* Уменьшенные отступы для начального размера */
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1.2rem; /* Уменьшенный шрифт для начального размера */
-    transition: background 0.3s, transform 0.3s ease; /* Плавный переход */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Добавление тени */
-    transform: scale(0.9); /* Начальный размер кнопки меньше */
-}
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
 
-.gender-option input:checked + .gender-button {
-    background-color: #8A2BE2; /* Цвет для выбранной кнопки */
-    transform: scale(1.1); /* Увеличение при выборе */
-    transition: transform 0.3s ease; /* Плавный переход для увеличения */
-}
+        .gender-options {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+        }
 
-.gender-button:hover {
-    background-color: #8A2BE2; /* Цвет при наведении */
-    transform: scale(1.05); /* Увеличение при наведении */
-}
+        .gender-option {
+            position: relative;
+        }
+
+        .gender-option input {
+            display: none;
+        }
+
+        .gender-button {
+            background-color: #6C63FF;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: scale(0.9);
+        }
+
+        .gender-option input:checked + .gender-button {
+            background-color: #8A2BE2;
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gender-button:hover {
+            background-color: #8A2BE2;
+            transform: scale(1.05);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
@@ -826,6 +875,10 @@
             <h1>Персональный стиль по подписке</h1>
             <p>Начните свой путь к идеальному стилю с помощью нашего сервиса.</p>
             <button class="btn" id="start-button">Начать подбор</button>
+            <div class="arrow-hint">
+                <span>Нажми</span>
+                <i class="fas fa-arrow-down"></i>
+            </div>
         </div>
     </div>
 
@@ -834,7 +887,6 @@
             <h2 class="section-title">NeuroGlam - Ваш персональный стилист нового поколения</h2>
             
             <div class="process-flow">
-                <!-- Шаг 1 - Анкетирование -->
                 <div class="process-step">
                     <div class="step-icon">
                         <i class="fas fa-clipboard-list"></i>
@@ -843,7 +895,6 @@
                     <p>Расскажите нам о своих предпочтениях: стиль, размеры, цветовая палитра и особенности фигуры</p>
                 </div>
     
-                <!-- Шаг 2 - Генерация -->
                 <div class="process-step">
                     <div class="step-icon">
                         <i class="fas fa-robot"></i>
@@ -852,7 +903,6 @@
                     <p>Наша нейросеть анализирует ваш профиль и создает уникальные луки с учетом последних трендов</p>
                 </div>
     
-                <!-- Шаг 3 - Проверка -->
                 <div class="process-step">
                     <div class="step-icon">
                         <i class="fas fa-user-edit"></i>
@@ -861,7 +911,6 @@
                     <p>Профессиональные стилисты проверяют и дорабатывают каждый образ</p>
                 </div>
     
-                <!-- Шаг 4 - Доставка -->
                 <div class="process-step">
                     <div class="step-icon">
                         <i class="fas fa-box-open"></i>
@@ -888,7 +937,7 @@
                     <i class="fas fa-clock"></i>
                     <h4>Экономия времени</h4>
                     <p>Больше не нужно тратить часы на шопинг</p>
-     </div>
+                </div>
             </div>
     
             <div class="cta-box">
@@ -963,7 +1012,6 @@
                 </div>
             </div>
     
-            <!-- Предпочтения в цвете -->
             <div class="color-preference">
                 <h3>Предпочтения в цвете</h3>
                 <div class="color-option" id="color-options">
@@ -976,7 +1024,6 @@
                 </div>
             </div>
     
-            <!-- Выбор цвета кожи -->
             <div class="skin-color-preference">
                 <h3>Выбор цвета кожи</h3>
                 <div class="color-option" id="skin-color-options">
@@ -991,55 +1038,52 @@
                 </div>
             </div>
     
-<div class="gender-preference">
-    <h3>Выберите пол</h3>
-    <div class="gender-options">
-        <label class="gender-option">
-            <input type="radio" name="gender" value="male" checked>
-            <span class="gender-button">Мужской</span>
-        </label>
-        <label class="gender-option">
-            <input type="radio" name="gender" value="female">
-            <span class="gender-button">Женский</span>
-        </label>
-    </div>
-</div>
+            <div class="gender-preference">
+                <h3>Выберите пол</h3>
+                <div class="gender-options">
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="male" checked>
+                        <span class="gender-button">Мужской</span>
+                    </label>
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="female">
+                        <span class="gender-button">Женский</span>
+                    </label>
+                </div>
+            </div>
 
-<!-- Ввод размеров -->
-<div class="size-preference">
-    <h3>Введите ваши размеры</h3>
-    <div class="size-input">
-        <label for="pants-size">Размер штанов:</label>
-        <input type="text" id="pants-size" placeholder="Например, 32" />
-    </div>
-    <div class="size-input">
-        <label for="shirt-size">Размер рубашки:</label>
-        <input type="text" id="shirt-size" placeholder="Например, M" />
-    </div>
-    <div class="size-input">
-        <label for="shoe-size">Размер обуви:</label>
-        <input type="text" id="shoe-size" placeholder="Например, 42" />
-    </div>
-    <button id="size-chart-button" class="btn">Показать таблицу размеров</button>
-</div>
+            <div class="size-preference">
+                <h3>Введите ваши размеры</h3>
+                <div class="size-input">
+                    <label for="pants-size">Размер штанов:</label>
+                    <input type="text" id="pants-size" placeholder="Например, 32" />
+                </div>
+                <div class="size-input">
+                    <label for="shirt-size">Размер рубашки:</label>
+                    <input type="text" id="shirt-size" placeholder="Например, M" />
+                </div>
+                <div class="size-input">
+                    <label for="shoe-size">Размер обуви:</label>
+                    <input type="text" id="shoe-size" placeholder="Например, 42" />
+                </div>
+                <button id="size-chart-button" class="btn">Показать таблицу размеров</button>
+            </div>
 
-<!-- Модальное окно для таблицы размеров -->
-<div class="modal" id="size-chart-modal">
-    <div class="modal-content">
-        <span class="close" id="close-size-chart">&times;</span>
-        <h2>Таблица размеров</h2>
-        <img src="images/size-chart.jpg" alt="Таблица размеров" style="width: 100%; height: auto;">
-    </div>
-</div>
+            <div class="modal" id="size-chart-modal">
+                <div class="modal-content">
+                    <span class="close" id="close-size-chart">×</span>
+                    <h2>Таблица размеров</h2>
+                    <img src="images/size-chart.jpg" alt="Таблица размеров" style="width: 100%; height: auto;">
+                </div>
+            </div>
     
             <button class="btn" id="submit-button">Подтвердить выбор</button>
         </div>
     </div>
 
-
     <div class="modal" id="success-modal">
         <div class="modal-content">
-            <span class="close" id="close-modal">&times;</span>
+            <span class="close" id="close-modal">×</span>
             <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Ваши предпочтения успешно отправлены!</p>
         </div>
     </div>
@@ -1047,15 +1091,18 @@
     <div class="footer" id="footer">
         <div class="company-name">NeuroGlam</div>
         <div class="contact-info">
-            <p>Свяжитесь с нами: <a href="mailto:support@neuroglam.com">support@neuroglam.com</a></p>
+            <p>Свяжитесь с нами:</p>
+            <a href="mailto:support@neuroglam.com">support@neuroglam.com</a>
+            <p>Телефон: +7 (999) 123-45-67</p>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script>
         document.getElementById('start-button').addEventListener('click', function() {
             document.getElementById('wizard').style.display = 'block';
-            document.getElementById('footer').style.display = 'flex'; 
-            this.textContent = 'Изменить'; 
+            document.getElementById('footer').style.display = 'flex';
+            this.textContent = 'Изменить';
         });
 
         const styleOptions = document.querySelectorAll('.style-option');
@@ -1065,25 +1112,30 @@
                 this.classList.add('selected');
                 const selectedStyle = this.getAttribute('data-style');
                 console.log('Выбран стиль:', selectedStyle);
-                document.getElementById('progress-bar').style.width = '50%'; 
-                document.querySelector('.color-option').style.display = 'flex'; 
+                document.getElementById('progress-bar').style.width = '20%';
+                document.querySelector('.color-option').style.display = 'flex';
             });
         });
 
         document.getElementById('submit-button').addEventListener('click', function() {
-            const selectedSize = document.getElementById('size-select') ? document.getElementById('size-select').value : 'Не выбран'; // Проверяем, выбран ли размер
-            console.log('Выбран размер:', selectedSize);
-            document.getElementById('wizard').style.display = 'none'; 
+            const pantsSize = document.getElementById('pants-size').value;
+            const shirtSize = document.getElementById('shirt-size').value;
+            const shoeSize = document.getElementById('shoe-size').value;
+            console.log('Размеры:', { pantsSize, shirtSize, shoeSize });
+            document.getElementById('wizard').style.display = 'none';
             document.getElementById('success-modal').style.display = 'flex';
         });
 
         document.getElementById('close-modal').addEventListener('click', function() {
-            document.getElementById('success-modal').style.display = 'none'; 
+            document.getElementById('success-modal').style.display = 'none';
         });
 
         window.onclick = function(event) {
             if (event.target == document.getElementById('success-modal')) {
-                document.getElementById('success-modal').style.display = 'none'; 
+                document.getElementById('success-modal').style.display = 'none';
+            }
+            if (event.target == document.getElementById('size-chart-modal')) {
+                document.getElementById('size-chart-modal').style.display = 'none';
             }
         };
 
@@ -1126,63 +1178,52 @@
             });
         });
        
-const colorOptions = document.querySelectorAll('.color-option div');
-colorOptions.forEach(color => {
-    color.addEventListener('click', function() {
-        
-        this.classList.toggle('selected'); 
-        const selectedColor = this.getAttribute('data-color');
-        console.log('Выбран цвет:', selectedColor);
-        
-        const selectedColors = document.querySelectorAll('.color-option div.selected');
-        document.getElementById('progress-bar').style.width = selectedColors.length > 0 ? '50%' : '0%';
-    });
-});
-// Обработчик для кнопки таблицы размеров
-document.getElementById('size-chart-button').addEventListener('click', function() {
-    document.getElementById('size-chart-modal').style.display = 'flex';
-});
+        const colorOptions = document.querySelectorAll('.color-option div');
+        colorOptions.forEach(color => {
+            color.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                const selectedColor = this.getAttribute('data-color');
+                console.log('Выбран цвет:', selectedColor);
+                const selectedColors = document.querySelectorAll('.color-option div.selected');
+                document.getElementById('progress-bar').style.width = selectedColors.length > 0 ? '40%' : '20%';
+            });
+        });
 
-// Закрытие модального окна таблицы размеров
-document.getElementById('close-size-chart').addEventListener('click', function() {
-    document.getElementById('size-chart-modal').style.display = 'none';
-});
+        document.getElementById('size-chart-button').addEventListener('click', function() {
+            document.getElementById('size-chart-modal').style.display = 'flex';
+        });
 
-// Закрытие модального окна при клике вне его
-window.onclick = function(event) {
-    if (event.target == document.getElementById('size-chart-modal')) {
-        document.getElementById('size-chart-modal').style.display = 'none';
-    }
-};
+        document.getElementById('close-size-chart').addEventListener('click', function() {
+            document.getElementById('size-chart-modal').style.display = 'none';
+        });
 
-const skinColorOptions = document.querySelectorAll('#skin-color-options div');
-skinColorOptions.forEach(color => {
-    color.addEventListener('click', function() {
-       
-        skinColorOptions.forEach(opt => opt.classList.remove('selected'));
-        
-        this.classList.add('selected');
-        const selectedSkinColor = this.getAttribute('data-color');
-        console.log('Выбран цвет кожи:', selectedSkinColor);
-        document.getElementById('progress-bar').style.width = '100%'; 
-    });
-});
+        const skinColorOptions = document.querySelectorAll('#skin-color-options div');
+        skinColorOptions.forEach(color => {
+            color.addEventListener('click', function() {
+                skinColorOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                const selectedSkinColor = this.getAttribute('data-color');
+                console.log('Выбран цвет кожи:', selectedSkinColor);
+                document.getElementById('progress-bar').style.width = '60%';
+            });
+        });
+
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         });
-        const genderOptions = document.querySelectorAll('.gender-option input');
 
-genderOptions.forEach(option => {
-    option.addEventListener('change', function() {
-        genderOptions.forEach(opt => {
-            const button = opt.nextElementSibling;
-            button.style.transform = 'scale(0.9)'; // Сброс размера
+        const genderOptions = document.querySelectorAll('.gender-option input');
+        genderOptions.forEach(option => {
+            option.addEventListener('change', function() {
+                genderOptions.forEach(opt => {
+                    const button = opt.nextElementSibling;
+                    button.style.transform = 'scale(0.9)';
+                });
+                const selectedButton = this.nextElementSibling;
+                selectedButton.style.transform = 'scale(1.1)';
+            });
         });
-        const selectedButton = this.nextElementSibling;
-        selectedButton.style.transform = 'scale(1.1)'; // Увеличение выбранной кнопки
-    });
-});   
     </script>
 </body>
 </html>
